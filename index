@@ -1,0 +1,288 @@
+
+
+Orcamento best body · HTML
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Orçamento · Best Body</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff;
+    --soft: #f5f5f4;
+    --ink: #1a1a1a;
+    --body: #4a4a4a;
+    --muted: #8a8a8a;
+    --rule: #e9e9e7;
+    --accent: #2e6b57;
+    --card: #181818;
+    --font: "Poppins", "Helvetica Neue", Arial, sans-serif;
+    --max: 1040px;
+  }
+ 
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+ 
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--body);
+    font-family: var(--font);
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+ 
+  a { color: inherit; text-decoration: none; }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 4px; }
+ 
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 28px; }
+ 
+  /* Barra do topo */
+  .bar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.88);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--rule);
+  }
+  .bar .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+  .brand { font-weight: 600; color: var(--ink); letter-spacing: -0.01em; }
+  .brand span { font-weight: 300; color: var(--muted); margin-left: 8px; }
+  .bar nav { display: flex; gap: 28px; font-size: 0.9rem; }
+  .bar nav a { color: var(--muted); transition: color .2s; }
+  .bar nav a:hover { color: var(--ink); }
+ 
+  /* Abertura */
+  .hero { padding: 88px 0 96px; }
+  .hero .wrap {
+    display: grid;
+    grid-template-columns: 1.25fr 0.75fr;
+    gap: 64px;
+    align-items: center;
+  }
+  h1 {
+    margin: 0;
+    color: var(--ink);
+    font-weight: 300;
+    font-size: clamp(2.3rem, 5.4vw, 3.9rem);
+    line-height: 1.08;
+    letter-spacing: -0.025em;
+  }
+  .lead { margin: 22px 0 0; font-size: 1.1rem; color: var(--muted); max-width: 30ch; }
+  .lead strong { color: var(--ink); font-weight: 500; }
+ 
+  .price-card {
+    background: var(--card);
+    color: #ffffff;
+    border-radius: 20px;
+    padding: 36px 34px 32px;
+  }
+  .price-card .k { font-size: 0.9rem; color: #a5a5a5; margin: 0; }
+  .price-card .v {
+    margin: 6px 0 0;
+    font-weight: 300;
+    font-size: clamp(2.3rem, 4.6vw, 3rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    white-space: nowrap;
+  }
+  .price-card ul { list-style: none; margin: 28px 0 0; padding: 22px 0 0; border-top: 1px solid #333333; }
+  .price-card li { display: flex; gap: 12px; align-items: flex-start; font-size: 0.93rem; color: #dcdcdc; }
+  .price-card li + li { margin-top: 10px; }
+  .price-card svg { flex: none; margin-top: 5px; }
+ 
+  /* Seções */
+  section.block { padding: 80px 0; border-top: 1px solid var(--rule); scroll-margin-top: 64px; }
+  .block .wrap {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 24px 64px;
+  }
+  h2 {
+    margin: 0;
+    color: var(--ink);
+    font-weight: 500;
+    font-size: 1.35rem;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+  }
+  .block p { margin: 0; }
+  .block p + p { margin-top: 14px; }
+  .big { font-size: 1.3rem; color: var(--ink); font-weight: 300; line-height: 1.5; max-width: 34ch; }
+ 
+  .panel {
+    margin-top: 32px;
+    background: var(--soft);
+    border-radius: 14px;
+    padding: 22px 26px;
+    font-size: 0.97rem;
+  }
+  .panel strong { color: var(--ink); font-weight: 500; }
+ 
+  /* Etapas */
+  .steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  .steps li { border-top: 2px solid var(--ink); padding-top: 20px; }
+  .steps .n {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #ffffff;
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+  .steps h3 { margin: 14px 0 6px; color: var(--ink); font-weight: 500; font-size: 1.05rem; }
+  .steps p { font-size: 0.95rem; }
+ 
+  /* Lista com check */
+  .checks { list-style: none; margin: 0; padding: 0; }
+  .checks li { display: flex; gap: 14px; align-items: flex-start; padding: 16px 0; border-bottom: 1px solid var(--rule); }
+  .checks li:first-child { padding-top: 0; }
+  .checks li:last-child { border-bottom: 0; padding-bottom: 0; }
+  .checks svg { flex: none; margin-top: 6px; }
+  .checks strong { color: var(--ink); font-weight: 500; }
+ 
+  footer { border-top: 1px solid var(--rule); padding: 32px 0 44px; color: var(--muted); font-size: 0.88rem; }
+  footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+ 
+  /* Tablet e celular */
+  @media (max-width: 860px) {
+    .hero { padding: 56px 0 64px; }
+    .hero .wrap { grid-template-columns: 1fr; gap: 40px; }
+    .block .wrap { grid-template-columns: 1fr; gap: 20px; }
+    section.block { padding: 56px 0; }
+    .steps { grid-template-columns: 1fr; gap: 28px; }
+  }
+  @media (max-width: 560px) {
+    .wrap { padding: 0 22px; }
+    .bar nav { display: none; }
+    .price-card { padding: 30px 26px 28px; }
+  }
+ 
+  @media print {
+    .bar { position: static; }
+    section.block { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+ 
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="check" viewBox="0 0 16 16">
+    <circle cx="8" cy="8" r="8" fill="currentColor" opacity="0.14"/>
+    <path d="M4.6 8.3l2.2 2.2 4.6-4.9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+</svg>
+ 
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="#topo">Best Body<span>Orçamento</span></a>
+    <nav aria-label="Seções">
+      <a href="#servico">Serviço</a>
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#pagamento">Pagamento</a>
+    </nav>
+  </div>
+</header>
+ 
+<main id="topo">
+ 
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <h1>Criação de imagens para redes sociais</h1>
+        <p class="lead">Proposta para <strong>Best Body</strong></p>
+      </div>
+ 
+      <aside class="price-card" aria-label="Valor">
+        <p class="k">Valor mensal</p>
+        <p class="v">R$ 3.000,00</p>
+        <ul>
+          <li><svg width="16" height="16" style="color:#7fc4a8"><use href="#check"/></svg>Imagens e carrosséis ilimitados</li>
+          <li><svg width="16" height="16" style="color:#7fc4a8"><use href="#check"/></svg>30 dias corridos de serviço</li>
+          <li><svg width="16" height="16" style="color:#7fc4a8"><use href="#check"/></svg>Pagamento sempre antecipado</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+ 
+  <section class="block" id="servico">
+    <div class="wrap">
+      <h2>Serviço</h2>
+      <div>
+        <p class="big">Criação de imagens e carrosséis para redes sociais, sem limite fixo de quantidade durante o período contratado.</p>
+        <div class="panel">
+          <p><strong>Quantidade.</strong> Ilimitada durante os 30 dias, conforme a demanda enviada. Não há número fixo de imagens.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+ 
+  <section class="block" id="como-funciona">
+    <div class="wrap">
+      <h2>Como funciona</h2>
+      <div>
+        <ol class="steps">
+          <li>
+            <span class="n">1</span>
+            <h3>Você envia</h3>
+            <p>Textos, referências e materiais necessários para cada criação.</p>
+          </li>
+          <li>
+            <span class="n">2</span>
+            <h3>Entrega</h3>
+            <p>No mesmo dia ou em até 2 dias, dependendo da quantidade de imagens do carrossel.</p>
+          </li>
+          <li>
+            <span class="n">3</span>
+            <h3>Ajustes</h3>
+            <p>Pedidos de alteração são entregues no dia seguinte e contam como uma nova rodada de criação.</p>
+          </li>
+        </ol>
+        <div class="panel">
+          <p><strong>Correções.</strong> Não é possível prever quantas serão necessárias. Enviando as demandas com antecedência, é possível produzir mais material no mesmo período.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+ 
+  <section class="block" id="pagamento">
+    <div class="wrap">
+      <h2>Vigência e pagamento</h2>
+      <ul class="checks">
+        <li><svg width="18" height="18" style="color:var(--accent)"><use href="#check"/></svg><span>O serviço vale por <strong>30 dias corridos</strong>, a contar da data do pagamento.</span></li>
+        <li><svg width="18" height="18" style="color:var(--accent)"><use href="#check"/></svg><span>Passados os 30 dias, o serviço é encerrado. Para continuar, é necessário <strong>novo pagamento</strong>.</span></li>
+        <li><svg width="18" height="18" style="color:var(--accent)"><use href="#check"/></svg><span>O pagamento é sempre <strong>antecipado</strong>, antes do início de cada período.</span></li>
+        <li><svg width="18" height="18" style="color:var(--accent)"><use href="#check"/></svg><span>Forma de pagamento: <strong>Pix ou transferência bancária</strong>.</span></li>
+      </ul>
+    </div>
+  </section>
+ 
+</main>
+ 
+<footer>
+  <div class="wrap">
+    <span>Best Body</span>
+    <span>Orçamento de criação de imagens para redes sociais</span>
+  </div>
+</footer>
+ 
+</body>
+</html>
+ 
